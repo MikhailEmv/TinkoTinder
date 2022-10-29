@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
     private void handleLogin() {
         FirebaseAuth.
                 getInstance().
-                createUserWithEmailAndPassword(edtEmail.getText().toString(),
+                signInWithEmailAndPassword(edtEmail.getText().toString(),
                         edtPassword.getText().toString()).
                 addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
