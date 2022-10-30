@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btnSubmit;
     private TextView txtLoginInfo;
 
+
+
     private boolean isSigningUp = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
              @Override
              public void onComplete(@NonNull Task<AuthResult> task) {
                  if (task.isSuccessful()) {
-                     FirebaseDatabase.getInstance().getReference("user" +
+                     FirebaseDatabase.getInstance().getReference("user/" +
                              FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(new User(
                              edtUsername.getText().toString(),
                              edtEmail.getText().toString(),
