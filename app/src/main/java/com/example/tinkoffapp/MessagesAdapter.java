@@ -35,17 +35,16 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
     public MessageHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater
                 .from(context)
-                .inflate(R.layout.messages_holder, parent, false);
+                .inflate(R.layout.message_holder, parent, false);
         return new MessageHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MessageHolder holder, int position) {
         holder.txtMessage.setText(message.get(position).getContent());
-
         ConstraintLayout constraintLayout = holder.ccll;
 
-        if(message
+        if (message
                 .get(position)
                 .getSender()
                 .equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
@@ -98,7 +97,6 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
                     ConstraintSet.RIGHT,
                     0);
             constraintSet.applyTo(constraintLayout);
-
         }
     }
 
@@ -107,7 +105,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
         return message.size();
     }
 
-    class MessageHolder extends RecyclerView.ViewHolder{
+    class MessageHolder extends RecyclerView.ViewHolder {
         ConstraintLayout ccll;
         TextView txtMessage;
         ImageView profImage;

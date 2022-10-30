@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> tegs;
     private String tegsStr;
 
-
-
     private boolean isSigningUp = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
