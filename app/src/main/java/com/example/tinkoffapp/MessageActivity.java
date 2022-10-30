@@ -67,6 +67,7 @@ public class MessageActivity extends AppCompatActivity {
                 getIntent().getStringExtra("my_img"),
                 getIntent().getStringExtra("img_roommate"),
                 MessageActivity.this);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(messagesAdapter);
 
@@ -76,6 +77,7 @@ public class MessageActivity extends AppCompatActivity {
                 .placeholder(R.drawable.account_img)
                 .error(R.drawable.account_img)
                 .into(imgToolBar);
+
         setUpChatRoom();
     }
 
@@ -89,7 +91,7 @@ public class MessageActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String myUserName = snapshot.getValue(User.class).getUsername();
-                if(usernameOfTheRoommate.compareTo(myUserName)>0){
+                if (usernameOfTheRoommate.compareTo(myUserName)>0){
                     chatRoomId = myUserName + usernameOfTheRoommate;
                 } else if(usernameOfTheRoommate.compareTo(myUserName) == 0){
                     chatRoomId = myUserName + usernameOfTheRoommate;
@@ -114,7 +116,7 @@ public class MessageActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 messages.clear();
-                for (DataSnapshot dataSnapshot:snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot:snapshot.getChildren()) {
                     messages.add(dataSnapshot.getValue(Message.class));
                 }
                 messagesAdapter.notifyDataSetChanged();

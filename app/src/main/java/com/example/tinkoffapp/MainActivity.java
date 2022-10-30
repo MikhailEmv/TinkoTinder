@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private Button btnSubmit;
     private TextView txtLoginInfo;
 
-
-
     private boolean isSigningUp = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
