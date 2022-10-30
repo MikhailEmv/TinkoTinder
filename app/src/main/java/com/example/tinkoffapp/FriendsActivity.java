@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -68,6 +69,36 @@ public class FriendsActivity extends AppCompatActivity {
         };
 
         getUsers();
+
+
+        Button bthProf = findViewById(R.id.bthProf);
+        bthProf.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View v) {
+                Intent intent1 = new Intent(FriendsActivity.this, Profile.class);
+                startActivity(intent1);
+            }
+        });
+
+        Button bthEven = findViewById(R.id.bthEven);
+        bthEven.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View v) {
+                Intent intent2 = new Intent(FriendsActivity.this, Events.class);
+                startActivity(intent2);
+            }
+        });
+        Button bthRec = findViewById(R.id.bthRec);
+        bthRec.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View v) {
+                Intent intent3 = new Intent(FriendsActivity.this, Recommend.class);
+                startActivity(intent3);
+            }
+        });
     }
 
     @Override

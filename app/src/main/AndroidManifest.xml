@@ -15,8 +15,23 @@
         android:theme="@style/Theme.TinkoffApp"
         tools:targetApi="31">
         <activity
-            android:name=".MessageActivity" android:theme="@style/StyleWithoutToolBar"
+            android:name=".Recommend"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Events"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MessageActivity"
+            android:exported="false"
+            android:theme="@style/StyleWithoutToolBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,12 +17,19 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText edtUsername, edtEmail, edtPassword;
     private Button btnSubmit;
     private TextView txtLoginInfo;
+    private ArrayList<String> tegs;
+    private String tegsStr;
 
 
 
@@ -34,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
         edtEmail = findViewById(R.id.edtEmail);
         edtUsername = findViewById(R.id.edtUsername);
         edtPassword = findViewById(R.id.edtPassword);
-
+        tegs = new ArrayList<String>(Arrays.asList("Рыбалка", "Еда"));
         btnSubmit = findViewById(R.id.btnSubmit);
-
+        tegsStr = "";
         txtLoginInfo = findViewById(R.id.txtLoginInfo);
 
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
@@ -45,10 +53,45 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
 
+        Button bth_tags = findViewById(R.id.bth_tags);
+        bth_tags.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Spinner spinner1 = findViewById(R.id.spinner1);
+                String selected1 = spinner1.getSelectedItem().toString();
+
+
+                Spinner spinner2 = findViewById(R.id.spinner2);
+                String selected2 = spinner2.getSelectedItem().toString();
+
+
+                Spinner spinner3 = findViewById(R.id.spinner3);
+                String selected3 = spinner3.getSelectedItem().toString();
+
+
+                Spinner spinner4 = findViewById(R.id.spinner4);
+                String selected4 = spinner4.getSelectedItem().toString();
+
+
+                Spinner spinner5 = findViewById(R.id.spinner5);
+                String selected5 = spinner5.getSelectedItem().toString();
+
+
+
+                tegs.add(selected1);
+                tegs.add(selected2);
+                tegs.add(selected3);
+                tegs.add(selected4);
+                tegs.add(selected5);
+                tegsStr = new Gson().toJson(tegs);
+            }
+        });
+
+
+
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if (edtEmail.getText().toString().isEmpty() ||
                         edtPassword.getText().toString().isEmpty()) {
                     if (isSigningUp && edtUsername.getText().toString().isEmpty()) {

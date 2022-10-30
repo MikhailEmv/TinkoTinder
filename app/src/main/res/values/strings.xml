@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">TinkoffApp</string>
+    <string-array name="Tags">
+        <item>Рыбалка</item>
+        <item>Фотография</item>
+        <item>Коты</item>
+        <item>Спорт</item>
+        <item>Путешествия</item>
+
+    </string-array>
 </resources>
